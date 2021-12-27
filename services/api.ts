@@ -1,7 +1,9 @@
 import axios from "axios";
 import { parseCookies } from "nookies";
 
-const cookies = parseCookies();
+let cookies = parseCookies();
+let isRefreshing = false;
+let failedRequestQueue = [];
 
 export const api = axios.create({
   baseURL: "http://localhost:3333",
