@@ -75,8 +75,10 @@ api.interceptors.response.use(
           });
         });
       } else {
-        // TODO
+        signOut();
       }
     }
+
+    return Promise.reject(error);
   }
 );
