@@ -15,7 +15,15 @@ export default function Dashboard() {
       .catch((err) => console.log(err));
   }, []);
 
-  return <h1>Dashboard: {user?.email}</h1>;
+  return (
+    <>
+      <h1>Dashboard: {user?.email}</h1>
+      <button onClick={signOut}>SignOut</button>
+      <Can permissions={["metrics.list"]}>
+        <div>Métricas</div>
+      </Can>
+    </>
+  );
 }
 
 export const getServerSideProps = withSSRAuth(async (ctx) => {
