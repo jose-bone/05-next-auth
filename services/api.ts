@@ -1,5 +1,7 @@
-import axios from "axios";
-import { parseCookies } from "nookies";
+import axios, { AxiosError } from "axios";
+import Router from "next/router";
+import { destroyCookie, parseCookies, setCookie } from "nookies";
+import { signOut } from "../contexts/AuthContext";
 
 let cookies = parseCookies();
 let isRefreshing = false;
